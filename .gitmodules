@@ -1,0 +1,30 @@
+[submodule "Dreamer-Topology3D"]
+	path = Dreamer-Topology3D
+	url = https://github.com/netgroup/Dreamer-Topology3D.git
+[submodule "Dreamer-Experiment-Handler"]
+	path = Dreamer-Experiment-Handler
+	url = https://github.com/netgroup/Dreamer-Experiment-Handler.git
+[submodule "Dreamer-Topology-and-Service-Validator"]
+	path = Dreamer-Topology-and-Service-Validator
+	url = https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git
+[submodule "OSHI-SR-dataplane-extensions"]
+	path = OSHI-SR-dataplane-extensions
+	url = https://github.com/netgroup/OSHI-SR-dataplane-extensions.git
+[submodule "SDN-TE-SR-tools"]
+	path = SDN-TE-SR-tools
+	url = https://github.com/netgroup/SDN-TE-SR-tools.git
+[submodule "Dreamer-Mininet-Extensions"]
+	path = Dreamer-Mininet-Extensions
+	url = https://github.com/netgroup/Dreamer-Mininet-Extensions.git
+[submodule "Dreamer-Topology-Parser-and-Validator"]
+	path = Dreamer-Topology-Parser-and-Validator
+	url = https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git
+[submodule "Dreamer-VLL-Pusher"]
+	path = Dreamer-VLL-Pusher
+	url = https://github.com/netgroup/Dreamer-VLL-Pusher.git
+[submodule "ovs"]
+	path = ovs
+	url = https://github.com/openvswitch/ovs.git
+[submodule "mininet"]
+	path = mininet
+	url = https://github.com/mininet/mininet.git

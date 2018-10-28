@@ -119,10 +119,10 @@
     cd mininet
     git reset --hard aae0affae46a63ef5e54d86351c96417c3888112
     cd util
-    ./install -ent
+    ./install.sh -ent
     ``` 
     
-5. 配置文件  
+5. 修改`Dreamer-Mininet-Extensions`目录中的文件路径  
     - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
     - **mininet_extensions.py**中设置`RYU_PATH={workspace}/Dreamer-VLL-Pusher/ryu`
     - **mininet_extensions.py**中设置`PROJECT_PATH={workspace}/Dreamer-Mininet-Extensions`
@@ -141,7 +141,7 @@
 2. 修改配置文件*config.js*
 
     ```js
-    config.mininet.mininet_extension_path = "/home/user/dreamer-mininet-extensions";
+    config.mininet.mininet_extension_path = "{workspace}/Dreamer-Mininet-Extensions";
     ```
     
 3. 运行

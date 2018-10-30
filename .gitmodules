@@ -28,3 +28,6 @@
 [submodule "mininet"]
 	path = mininet
 	url = https://github.com/mininet/mininet.git
+[submodule "Dreamer-Testbed-Deployer"]
+	path = Dreamer-Testbed-Deployer
+	url = https://github.com/netgroup/Dreamer-Testbed-Deployer.git

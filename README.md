@@ -16,6 +16,7 @@
 - [Dreamer-VLL-Pusher](https://github.com/netgroup/Dreamer-VLL-Pusher.git)
 - [OpenvSwitch](https://github.com/openvswitch/ovs.git)
 - [Mininet](https://github.com/mininet/mininet.git)
+- [Dreamer-Tested-Deployer](https://github.com/netgroup/Dreamer-Testbed-Deployer.git)
 
 ## 环境配置
 
@@ -61,7 +62,6 @@
     this.experiment_handler.host_port = 3000;
     this.experiment_handler.host_name = "{ip_address}";
     ```
-    这里服务器地址我填的是公网ip，填写127.0.0.1的时候会报错，修改过apache配置文件后依旧无果，毕竟不是啥大问题，等以后再解决把。
     
 4. 打开浏览器输入url即可访问
 
@@ -84,6 +84,7 @@
     pip install ipaddress
     pip install ryu
     pip install networkx
+    pip install siphash
     ```
     
 3. 系统依赖
@@ -110,6 +111,8 @@
     ovs-ctl start
     
     cd Dreamer-Mininet-Extensions
+    
+    # 删除install_ovswitch.sh文件line90-92行末尾的&&符号
     chmod +x install_ovswitch.sh
     ./install_ovswitchd.sh
     ```
@@ -153,4 +156,13 @@
     node app.js
     ```
     
+## OSHI-SR-dataplane-extensions
+
+```sh
+git clone https://github.com/netgroup/OSHI-SR-dataplane-extensions.git
+cd OSHI-SR-dataplane-extensions
+make
+mv fpm-of.bin /usr/bin/
+```
+
 ## 未完待续

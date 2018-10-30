@@ -104,12 +104,13 @@
     ./boot.sh   # 可能需要root权限
     ./configure
     make
-    make install 
     make check      # 检查单元测试
+    make install 
     export PATH=$PATH:/usr/local/share/openvswitch/scripts
     ovs-ctl start
     
     cd Dreamer-Mininet-Extensions
+    chmod +x install_ovswitch.sh
     ./install_ovswitchd.sh
     ```
     
@@ -119,6 +120,7 @@
     cd mininet
     git reset --hard aae0affae46a63ef5e54d86351c96417c3888112
     cd util
+    chmod +x install.sh
     ./install.sh -ent
     ``` 
     

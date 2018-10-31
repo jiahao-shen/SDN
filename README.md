@@ -14,16 +14,14 @@
 - [Dreamer-Mininet-Extensions](https://github.com/netgroup/Dreamer-Mininet-Extensions.git)
 - [Dreamer-Topology-Parser-and-Validator](https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git)
 - [Dreamer-VLL-Pusher](https://github.com/netgroup/Dreamer-VLL-Pusher.git)
-- [OpenvSwitch](https://github.com/openvswitch/ovs.git)
-- [Mininet](https://github.com/mininet/mininet.git)
-- [Dreamer-Tested-Deployer](https://github.com/netgroup/Dreamer-Testbed-Deployer.git)
 
 ## 环境配置
 
 - Ubuntu 16.04
-- Apache2.0
+- Apache2
 - gcc
 - python2.7
+- nodejs
 
 ## 部署流程
 
@@ -41,6 +39,10 @@
     git clone https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git
     cd Dreamer-Topology-and-Service-Validator
     python manage.py runserver 0.0.0.0:8090
+	
+
+    # 后台运行
+	nohup python manage.py runserver 0.0.0.0:8090 &
     ```
 
 ### Dreamer-Topolpgy3D
@@ -96,46 +98,28 @@
     apt install quagga
     ```
     
-3. Open vSwitch Service安装
+3. Mininet安装
 
     ```sh
-    cd ovs
-    git checkout v2.3   # 切换成2.3版本
-    
-    ./boot.sh   # 可能需要root权限
-    ./configure
-    make
-    make check      # 检查单元测试
-    make install 
-    export PATH=$PATH:/usr/local/share/openvswitch/scripts
-    ovs-ctl start
-    
-    cd Dreamer-Mininet-Extensions
-    
-    # 删除install_ovswitch.sh文件line90-92行末尾的&&符号
-    chmod +x install_ovswitch.sh
-    ./install_ovswitchd.sh
+	apt install mininet
+
     ```
+
+	修改**Dreamer-Mininet-Extensions/nodes.py**文件中的第**104**行:
+
+	```python
+	ovs_initd = "/etc/init.d/openvswitch-switch"
+	```
     
-4. Mininet安装
-    
-    ```sh
-    cd mininet
-    git reset --hard aae0affae46a63ef5e54d86351c96417c3888112
-    cd util
-    chmod +x install.sh
-    ./install.sh -ent
-    ``` 
-    
-5. 修改`Dreamer-Mininet-Extensions`目录中的文件路径  
+4. 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
     - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
     - **mininet_extensions.py**中设置`RYU_PATH={workspace}/Dreamer-VLL-Pusher/ryu`
     - **mininet_extensions.py**中设置`PROJECT_PATH={workspace}/Dreamer-Mininet-Extensions`
 
-6. 运行测试
+5. 运行测试
      
      ```sh
-     ./mininet_deployer.py --topology topo/topo_vll_pw.json
+     ./mininet_deployer.py --topology topo/topo_vll_pw.json 
      ```
      
 具体安装方法详见：[Dreamer-Mininet-Extensions How-To](http://netgroup.uniroma2.it/twiki/bin/view/Oshi/OshiExperimentsHowto#MininetExtensions)
@@ -143,7 +127,7 @@
 ## Dreamer-Experiment-Handler
 
 1. `git clone https://github.com/netgroup/Dreamer-Experiment-Handler.git`
-2. 修改配置文件*config.js*
+2. 修改配置文件**config.js**
 
     ```js
     config.mininet.mininet_extension_path = "{workspace}/Dreamer-Mininet-Extensions";
@@ -154,6 +138,9 @@
     ```sh
     cd Dreamer-Experiment-Handler
     node app.js
+
+	# 后台运行
+	nohup node app.js & 
     ```
     
 ## OSHI-SR-dataplane-extensions

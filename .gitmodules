@@ -22,12 +22,9 @@
 [submodule "Dreamer-VLL-Pusher"]
 	path = Dreamer-VLL-Pusher
 	url = https://github.com/netgroup/Dreamer-VLL-Pusher.git
-[submodule "ovs"]
-	path = ovs
-	url = https://github.com/openvswitch/ovs.git
-[submodule "mininet"]
-	path = mininet
-	url = https://github.com/mininet/mininet.git
-[submodule "Dreamer-Testbed-Deployer"]
-	path = Dreamer-Testbed-Deployer
-	url = https://github.com/netgroup/Dreamer-Testbed-Deployer.git
+[submodule "dreamer-ryu"]
+	path = dreamer-ryu
+	url = https://github.com/netgroup/dreamer-ryu.git
+[submodule "Mantoo-scripts-and-readme"]
+	path = Mantoo-scripts-and-readme
+	url = https://github.com/netgroup/Mantoo-scripts-and-readme.git

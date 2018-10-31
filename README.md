@@ -14,6 +14,8 @@
 - [Dreamer-Mininet-Extensions](https://github.com/netgroup/Dreamer-Mininet-Extensions.git)
 - [Dreamer-Topology-Parser-and-Validator](https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git)
 - [Dreamer-VLL-Pusher](https://github.com/netgroup/Dreamer-VLL-Pusher.git)
+- [dreamer-ryu](https://github.com/netgroup/dreamer-ryu.git)
+- [Mantoo-scripts-and-readme](https://github.com/netgroup/Mantoo-scripts-and-readme.git)
 
 ## 环境配置
 

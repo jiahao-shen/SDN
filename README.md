@@ -29,13 +29,13 @@
 
 ### Dreamer-Topology-and-Service-Validator
 
-1. python依赖
+- python依赖
 
     ```sh
     pip install django==1.6
-    pip install networkx
+    pip install networkx==1.9
     ```
-2. 下载并启动项目
+- 下载并启动项目
 
     ```sh
     git clone https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git
@@ -49,12 +49,12 @@
 
 ### Dreamer-Topolpgy3D
 
-1. `git clone https://github.com/netgroup/Dreamer-Topology3D.git`
-2. 将Dreamer-Topology挂在到服务器跟目录下，我用的是apache2，如下：
+- `git clone https://github.com/netgroup/Dreamer-Topology3D.git`
+- 将Dreamer-Topology挂在到服务器跟目录下，我用的是apache2，如下：
     
-    `mv Dreamer-Topology3D ~/webroot/`
+    `mv Dreamer-Topology3D {webroot}`
     
-3. 修改项目中的**js/src/config.js**文件如下：
+- 修改项目中的**js/src/config.js**文件如下：
  
     ```js
     this.top_ser_validator = {};
@@ -67,21 +67,19 @@
     this.experiment_handler.host_name = "{ip_address}";
     ```
     
-4. 打开浏览器输入url即可访问
+- 打开浏览器输入url即可访问
 
 
 ## Dreamer-Mininet-Extensions
 
-1. Clone仓库
+- Clone仓库
     ```sh
     git clone https://github.com/netgroup/Dreamer-Mininet-Extensions.git
-    git clone https://github.com/netgroup/Dreamer-VLL-Pusher.git
-    git clone https://github.com/openvswitch/ovs.git  
-    git clone https://github.com/mininet/mininet.git
+    git clone https://github.com/netgroup/Dreamer-VLL-Pusher.git 
     git clone https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git
     ```
 
-2. python依赖
+- python依赖
 
     ```sh
     pip install netaddr
@@ -91,7 +89,7 @@
     pip install siphash
     ```
     
-3. 系统依赖
+- 系统依赖
 
     ```sh 
     apt install autoconf 
@@ -100,7 +98,7 @@
     apt install quagga
     ```
     
-3. Mininet安装
+- Mininet安装
 
     ```sh
 	apt install mininet
@@ -113,29 +111,29 @@
 	ovs_initd = "/etc/init.d/openvswitch-switch"
 	```
     
-4. 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
+- 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
     - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
     - **mininet_extensions.py**中设置`RYU_PATH={workspace}/Dreamer-VLL-Pusher/ryu`
     - **mininet_extensions.py**中设置`PROJECT_PATH={workspace}/Dreamer-Mininet-Extensions`
 
-5. 运行测试
+- 运行测试
      
      ```sh
      ./mininet_deployer.py --topology topo/topo_vll_pw.json 
      ```
      
-具体安装方法详见：[Dreamer-Mininet-Extensions How-To](http://netgroup.uniroma2.it/twiki/bin/view/Oshi/OshiExperimentsHowto#MininetExtensions)
+- 具体安装方法详见：[Dreamer-Mininet-Extensions How-To](http://netgroup.uniroma2.it/twiki/bin/view/Oshi/OshiExperimentsHowto#MininetExtensions)
     
 ## Dreamer-Experiment-Handler
 
-1. `git clone https://github.com/netgroup/Dreamer-Experiment-Handler.git`
-2. 修改配置文件**config.js**
+- `git clone https://github.com/netgroup/Dreamer-Experiment-Handler.git`
+- 修改配置文件**config.js**
 
     ```js
     config.mininet.mininet_extension_path = "{workspace}/Dreamer-Mininet-Extensions";
     ```
     
-3. 运行
+- 运行
 
     ```sh
     cd Dreamer-Experiment-Handler
@@ -154,4 +152,49 @@ make
 mv fpm-of.bin /usr/bin/
 ```
 
-## 未完待续
+## SDN-TE-SR-tools
+
+- 依赖和Clone
+
+    ```sh
+    apt install python-tk
+    pip install matplotlib==2.2
+
+    git clone https://github.com/netgroup/SDN-TE-SR-tools.git)
+    git clone https://github.com/netgroup/dreamer-ryu.git
+    git clone https://github.com/netgroup/Mantoo-scripts-and-readme.git
+    ```
+
+- 修改**Dreamer-Mininet-Extensions/nodes.py**文件中的**第32行**:
+
+    ```py
+    ENABLE_SEGMENT_ROUTING = True
+    ```
+    
+## Small scale Topology
+
+- 在浏览器打开Topology3D GUI加载样例拓扑，点击右上角菜单栏的"Topology"，选择"Import topology from file"，选择**SDN-TE-SR-tools/parsers-generators/t3d/small-topo2-4-vll.t3d**文件
+- 选择左侧菜单栏的"Deployment"，点击"Deploy"，在下方命令行输入`deploy`并回车
+- 查看Controller的IP并远程登录
+
+    ```sh
+    ssh -X root@10.255.245.1
+    cd Mantoo-scripts-and-readme
+    ```
+- 修改**ryu_start.sh**文件中的目录为**dreamer-ryu/ryu/app**
+- 运行`./ryu_start.sh`
+- 修改**generate_topo_and_flow_cata.sh**文件中的目录为**SDN-TE-SR-tools/parsers-generators**
+- 生成SR分配算法所需的流目录
+
+    ```sh
+    cd Mantoo-scripts-and-readm
+    ./generate_topo_and_flow_cata.sh 0.0.0.0:8080
+    ```
+- 查看生成的文件
+
+    ```sh
+    cat {workspace}/SDN-TE-SR-tools/java-te-sr/flow/flow_catalogue.json
+    ```
+- 运行SR分配算法
+- 未完待续
+

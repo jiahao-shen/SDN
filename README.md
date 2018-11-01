@@ -85,7 +85,6 @@
     pip install netaddr
     pip install ipaddress
     pip install ryu
-    pip install networkx
     pip install siphash
     ```
     

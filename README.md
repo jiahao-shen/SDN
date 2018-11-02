@@ -112,7 +112,7 @@
     
 - 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
     - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
-    - **mininet_extensions.py**中设置`RYU_PATH={workspace}/Dreamer-VLL-Pusher/ryu`
+    - **mininet_extensions.py**中设置`RYU_PATH={workspace}/dreamer-ryu/ryu/app`
     - **mininet_extensions.py**中设置`PROJECT_PATH={workspace}/Dreamer-Mininet-Extensions`
 
 - 运行测试
@@ -182,18 +182,49 @@ mv fpm-of.bin /usr/bin/
     ```
 - 修改**ryu_start.sh**文件中的目录为**dreamer-ryu/ryu/app**
 - 运行`./ryu_start.sh`
+- 或者手动运行
+		
+    ```sh
+    ssh -X root@10.255.245.1
+    cd {workspace}/dreamer-ryu/ryu/app
+    ryu-manager rest_topology.py ofctl_rest.py --observe-links
+    ```
+		
 - 修改**generate_topo_and_flow_cata.sh**文件中的目录为**SDN-TE-SR-tools/parsers-generators**
 - 生成SR分配算法所需的流目录
 
     ```sh
     cd Mantoo-scripts-and-readm
-    ./generate_topo_and_flow_cata.sh 0.0.0.0:8080
+    ./generate_topo_and_flow_cata.sh 10.255.245.1:8080
     ```
+- 或者手动运行
+
+    ```sh
+    cd {workspace}/SDN-TE-SR-tools/parsers-generators
+    python parse_transform_generate.py --in ctrl_ryu --out nx --generate_flow_cata_from_vll_pusher_cfg --controller 10.255.245.1:8080
+    mv flow_catalogue.json ../java-te-sr/flow/
+    mv links.json ../java-te-sr/topology/
+    mv nodes.json ../java-te-sr/topology/
+    ```
+    
 - 查看生成的文件
 
     ```sh
     cat {workspace}/SDN-TE-SR-tools/java-te-sr/flow/flow_catalogue.json
     ```
 - 运行SR分配算法
+    - 打开Intellij IDEA，导入**SDN-TE-SR-tools/java-te-sr**项目，选择从Eclipse项目导入
+    - 使用JDK1.8运行（原项目使用JDK1.7）
+    - 设置运行参数
+    
+    ```sh
+    topo_in=topology/links.json
+    topo_out=topology/out_links.json
+    flows_in=flow/flow_catalogue.json
+    flows_out=flow/out_flow_catalogue.json
+    ```
+	
+    - 点击运行，如果成功则控制台不会显示任何信息
+
 - 未完待续
 

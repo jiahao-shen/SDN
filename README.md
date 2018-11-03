@@ -223,8 +223,23 @@ mv fpm-of.bin /usr/bin/
     flows_in=flow/flow_catalogue.json
     flows_out=flow/out_flow_catalogue.json
     ```
-	
+    - 在IDEA中选择"Tools"->"Deployment"->"Configuration"，选择传输协议，配置服务器ip地址以及跟目录，在"Mappings"中配置本地项目路径以及对应的服务端项目路径，配置成功后选择"Tools"->"Deployment"->"Browser Remote Host"即可在右侧看到服务器端文件，以方便在本地和服务器双方进行文件的同步。
     - 点击运行，如果成功则控制台不会显示任何信息
 
-- 未完待续
+- 把本地生成的**out_flow_catalogue.json**文件同步到服务器后，将其放到**SDN-TE-SR-tools/OSHI-SR-pusher**路径下
 
+    ```sh
+    cd {workspace}/Mantoo-scripts-and-readme
+    ./sr_pusher_start.sh 10.255.245.1:8080 --add
+    ```
+    
+- 或者手动运行
+
+    ```sh
+    cd {workspace}/SDN-TE-SR-tools
+    mv java-te-sr/flow/out_flow_catalogue.json OSHI-SR-pusher/
+    cd {workspace}/sdn-te-sr-tools/OSHI-SR-pusher/
+    rm sr_vlls.json
+    ./sr_vll_pusher.py --controller 10.255.245.1:8080 --add
+    ```
+- 未完待续

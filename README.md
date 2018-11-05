@@ -68,7 +68,8 @@
     ```
     
 - 打开浏览器输入url即可访问
-- 项目会默认从[googleapis](https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic)处加载字体，导致前端加载比较慢，可以先从源地址下载**fonts.css**文件到**Dreamer-Topology3D/dist/css**目录下，然后将**AdminLTE.css**的第一行改为`@import url(fonts.css)`
+- 项目会默认从[googleapis](https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic)处加载字体，导致前端加载比较慢，可以先从源地址下载**fonts.css**文件到**Dreamer-Topology3D/dist/css**目录下，然后将**AdminLTE.css**的**第1行**改为`@import url(fonts.css)`
+- **Dreamer-Topology3D/index.html**中**第1087行**的js文件名写错了，改成**plugins/datatables/dataTables.bootstarp.min.js**
 
 
 ## Dreamer-Mininet-Extensions

@@ -7,12 +7,29 @@
 ## SubModules
 
 - [Dreamer-Topology3D](https://github.com/netgroup/Dreamer-Topology3D.git)
+	- 一个简单直观的JavaScript Web GUI（虽然他们官方的[Demo](http://stud.netgroup.uniroma2.it/OSHI/TopoDesigner/)都早早的挂了），可以通过扩展支持不同的网络模型，目前支持标准OpenFlow设备网络和由OSHI节点构成的网络，可以导出或导入JSON格式的拓扑。还支持图形编辑拓扑。
+	
 - [Dreamer-Experiment-Handler](https://github.com/netgroup/Dreamer-Experiment-Handler.git)
+    - 控制emulated SDN testbeds与Topology3D提供的Web GUI进行交互，使用Mininet仿真器，提供服务端元素来分配和控制Mininet节点，将Mininet控制台中的信息重定向到Web GUI上进行显示。
+
 - [Dreamer-Topology-and-Service-Validator](https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git)
+    - 一个Django应用程序，用于存储model/layer及其约束，并能够检验基于Dreamer-Topology3D项目创建的拓扑。
+    
 - [OSHI-SR-dataplane-extensions](https://github.com/netgroup/OSHI-SR-dataplane-extensions.git)
+    - OSHI的分段路由数据平面扩展
+
 - [SDN-TE-SR-tools](https://github.com/netgroup/SDN-TE-SR-tools.git)
+    - 基于SDN流量工程和分段路由的工具
+    - parsers-generators
+    - java-te-sr
+    - OSHI-SR-pusher
+
 - [Dreamer-Mininet-Extensions](https://github.com/netgroup/Dreamer-Mininet-Extensions.git)
+    - 用于OSHI实验的Mininet扩展，用来模拟使用Mininet仿真器的OSHI网络
+    
 - [Dreamer-Topology-Parser-and-Validator](https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git)
+    - 用于Mininet和测试部署的拓扑解析器。使用此工具，您可以解析和验证由Dreamer-Topology-Designer创建的拓扑。
+    
 - [Dreamer-VLL-Pusher](https://github.com/netgroup/Dreamer-VLL-Pusher.git)
 - [dreamer-ryu](https://github.com/netgroup/dreamer-ryu.git)
 - [Mantoo-scripts-and-readme](https://github.com/netgroup/Mantoo-scripts-and-readme.git)
@@ -103,15 +120,10 @@
 
     ```sh
 	apt install mininet
-
+	mv /etc/init.d/openvswitch-switch /etc/init.d/openvswitchd
     ```
 
-	修改**Dreamer-Mininet-Extensions/nodes.py**文件中的第**104**行:
-
-	```python
-	ovs_initd = "/etc/init.d/openvswitch-switch"
-	```
-    
+	    
 - 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
     - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
     - **mininet_extensions.py**中设置`RYU_PATH={workspace}/dreamer-ryu/ryu/app`
@@ -196,7 +208,7 @@ mv fpm-of.bin /usr/bin/
 - 生成SR分配算法所需的流目录
 
     ```sh
-    cd Mantoo-scripts-and-readm
+    cd Mantoo-scripts-and-readme
     ./generate_topo_and_flow_cata.sh 10.255.245.1:8080
     ```
 - 或者手动运行
@@ -240,7 +252,7 @@ mv fpm-of.bin /usr/bin/
     ```sh
     cd {workspace}/SDN-TE-SR-tools
     mv java-te-sr/flow/out_flow_catalogue.json OSHI-SR-pusher/
-    cd {workspace}/sdn-te-sr-tools/OSHI-SR-pusher/
+    cd {workspace}/SDN-TE-SR-tools/OSHI-SR-pusher/
     rm sr_vlls.json
     ./sr_vll_pusher.py --controller 10.255.245.1:8080 --add
     ```

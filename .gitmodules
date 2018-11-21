@@ -1,30 +1,30 @@
-[submodule "Dreamer-Topology3D"]
-	path = Dreamer-Topology3D
-	url = https://github.com/netgroup/Dreamer-Topology3D.git
 [submodule "Dreamer-Experiment-Handler"]
 	path = Dreamer-Experiment-Handler
-	url = https://github.com/netgroup/Dreamer-Experiment-Handler.git
-[submodule "Dreamer-Topology-and-Service-Validator"]
-	path = Dreamer-Topology-and-Service-Validator
-	url = https://github.com/netgroup/Dreamer-Topology-and-Service-Validator.git
-[submodule "OSHI-SR-dataplane-extensions"]
-	path = OSHI-SR-dataplane-extensions
-	url = https://github.com/netgroup/OSHI-SR-dataplane-extensions.git
-[submodule "SDN-TE-SR-tools"]
-	path = SDN-TE-SR-tools
-	url = https://github.com/netgroup/SDN-TE-SR-tools.git
+	url = https://github.com/jiahao-shen/Dreamer-Experiment-Handler.git
 [submodule "Dreamer-Mininet-Extensions"]
 	path = Dreamer-Mininet-Extensions
-	url = https://github.com/netgroup/Dreamer-Mininet-Extensions.git
-[submodule "Dreamer-Topology-Parser-and-Validator"]
-	path = Dreamer-Topology-Parser-and-Validator
-	url = https://github.com/netgroup/Dreamer-Topology-Parser-and-Validator.git
+	url = https://github.com/jiahao-shen/Dreamer-Mininet-Extensions.git
+[submodule "Dreamer-Topology-Parser"]
+	path = Dreamer-Topology-Parser
+	url = https://github.com/jiahao-shen/Dreamer-Topology-Parser.git
+[submodule "Dreamer-Topology-and-Service-Validator"]
+	path = Dreamer-Topology-and-Service-Validator
+	url = https://github.com/jiahao-shen/Dreamer-Topology-and-Service-Validator.git
+[submodule "Dreamer-Topology3D"]
+	path = Dreamer-Topology3D
+	url = https://github.com/jiahao-shen/Dreamer-Topology3D.git
 [submodule "Dreamer-VLL-Pusher"]
 	path = Dreamer-VLL-Pusher
-	url = https://github.com/netgroup/Dreamer-VLL-Pusher.git
-[submodule "dreamer-ryu"]
-	path = dreamer-ryu
-	url = https://github.com/netgroup/dreamer-ryu.git
+	url = https://github.com/jiahao-shen/Dreamer-VLL-Pusher.git
 [submodule "Mantoo-scripts-and-readme"]
 	path = Mantoo-scripts-and-readme
-	url = https://github.com/netgroup/Mantoo-scripts-and-readme.git
+	url = https://github.com/jiahao-shen/Mantoo-scripts-and-readme.git
+[submodule "OSHI-SR-dataplane-extensions"]
+	path = OSHI-SR-dataplane-extensions
+	url = https://github.com/jiahao-shen/OSHI-SR-dataplane-extensions.git
+[submodule "SDN-TE-SR-tools"]
+	path = SDN-TE-SR-tools
+	url = https://github.com/jiahao-shen/SDN-TE-SR-tools.git
+[submodule "dreamer-ryu"]
+	path = dreamer-ryu
+	url = https://github.com/jiahao-shen/dreamer-ryu.git

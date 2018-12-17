@@ -125,7 +125,7 @@
 
 	    
 - 修改**Dreamer-Mininet-Extensions**目录中的文件路径  
-    - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parser-and-Validator`
+    - **mininet_deployer.py**中设置`parser_path={workspace}/Dreamer-Topology-Parserd`
     - **mininet_extensions.py**中设置`RYU_PATH={workspace}/dreamer-ryu/ryu/app`
     - **mininet_extensions.py**中设置`PROJECT_PATH={workspace}/Dreamer-Mininet-Extensions`
 

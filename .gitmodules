@@ -28,3 +28,6 @@
 [submodule "dreamer-ryu"]
 	path = dreamer-ryu
 	url = https://github.com/jiahao-shen/dreamer-ryu.git
+[submodule "RoutingAlgorithm"]
+	path = RoutingAlgorithm
+	url = https://github.com/jiahao-shen/RoutingAlgorithm.git
